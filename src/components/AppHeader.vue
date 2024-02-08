@@ -62,15 +62,8 @@ header {
     height: 100%;
 
     ul {
-      display: flex;
-      padding: 0;
-
       li {
         margin: 0 10px;
-
-        a {
-          color: white;
-        }
       }
     }
 

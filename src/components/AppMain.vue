@@ -89,10 +89,11 @@ export default {
 .container {
   display: flex;
   flex-wrap: wrap;
+  margin: 10px 0;
 
   .card {
     width: calc((100% / 3) - 20px);
-    height: 600px;
+    height: 550px;
     margin: 10px;
     position: relative;
 
