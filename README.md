@@ -1,43 +1,15 @@
-# VITE + VUE
+# Descrizione
 
-## Creazione di un nuovo progetto
+Create un nuovo progetto utilizzando Vite e Vue 3 e definite i componenti necessari per strutturare il layout.
+Non esagerate con i componenti: less is more.
 
-1. Crea una nuova cartella con il nome del progetto
-2. Apri la cartella in VSCode
-3. Apri un terminale da VSCode ed esegui il comando
+L'esercizio già lo conoscete (html-css-boolando), ma la sfida è suddividerlo in componenti e provare a sfruttare SASS per rendere il nostro stile più leggibile e flessibile (di quali variabili potreste avere bisogno?).
 
-```bash
-npm create vite@latest .
-```
+## Bonus
 
-4. Pubblica la repo su GitHub con il nome dell'esercizio
+Popoliamo le voci dell'header (sia le tre voci testuali che le tre icone) dinamicamente.
+Consigli
+E' un ottimo metodo per prendere appunti :occhiolino:
 
-## Installazione SASS
-
-1. Rimuovi l'import del file `style.css` dal file `main.js`
-2. Rimuovi il file `style.css`
-3. Esegui il comando
-
-```bash
-npm i --save-dev sass
-```
-
-4. Crea il seguente scaffolding per i file scss:
-
-```plaintext
-src
-|
-| styles
-| |
-| | general.scss
-| | partials
-| | |
-| | | \_mixins.scss
-| | | \_variables.scss
-```
-
-5. importa il file `general.scss` in `App.vue`. <br>
-   Dovrai usare la direttiva `@use` e il tag `<style>` non dovrà avere l'attributo `scoped`.
-
-6. importa i file parziali nel file `general.scss`. <br>
-   Dovrai usare la direttiva `@use` ed aggiungere `as *`
+PS. nel file che vi ho mandato non c'è tutto: ad esempio non c'è scritto come "resettare" il componente App.vue per poi andare a riscriverlo con le option API. Potete partire dal mio e aggiungere quel che volete, integrando man mano anche gli argomenti delle prossime lezioni. Alla fine vi ritroverete con una guida completa!
+Volendo esagerare, so di una classe i cui studenti hanno collaborato condividendo un file su Google Drive e prendendo appunti condivisi (basta che non vi distraiate troppo durante le spiegazioni).
