@@ -1,7 +1,30 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+      links: [
+        {
+          title: "Informazioni legali",
+          href: "#",
+        },
+        {
+          title: "Informativa sulla privacy",
+          href: "#",
+        },
+        {
+          title: "Diritto di recesso",
+          href: "#",
+        },
+      ],
+
+      icons: [
+        "icon fa-brands fa-square-twitter",
+        "icon fa-brands fa-square-facebook",
+        "icon fa-brands fa-square-instagram",
+        "icon fa-brands fa-square-pinterest",
+        "icon fa-brands fa-square-youtube",
+      ],
+    };
   },
 };
 </script>
@@ -12,26 +35,15 @@ export default {
       <div class="left-box">
         <h6>Boolando srl</h6>
         <ul>
-          <li>
-            <a href="#">Informazioni legali</a>
-          </li>
-          <li>
-            <a href="#">Informativa sulla privacy</a>
-          </li>
-
-          <li>
-            <a href="#">Diritto di recesso</a>
+          <li v-for="link in links">
+            <a :href="link.href">{{ link.title }}</a>
           </li>
         </ul>
       </div>
       <div class="right-box">
         <span>Trovaci anche su</span>
         <div class="icons">
-          <i class="icon fa-brands fa-square-twitter"></i>
-          <i class="icon fa-brands fa-square-facebook"></i>
-          <i class="icon fa-brands fa-square-instagram"></i>
-          <i class="icon fa-brands fa-square-pinterest"></i>
-          <i class="icon fa-brands fa-square-youtube"></i>
+          <i v-for="icon in icons" :class="icon"></i>
         </div>
       </div>
     </div>
