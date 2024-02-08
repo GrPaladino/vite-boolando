@@ -1,7 +1,37 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+      genders: [
+        {
+          sex: "Donna",
+          href: "#",
+        },
+        {
+          sex: "Uomo",
+          href: "#",
+        },
+        {
+          sex: "Bambino",
+          href: "#",
+        },
+      ],
+
+      icons: [
+        {
+          class: "fa-regular fa-user",
+          href: "#",
+        },
+        {
+          class: "fa-regular fa-heart",
+          href: "#",
+        },
+        {
+          class: "fa-regular fa-bag-shopping",
+          href: "#",
+        },
+      ],
+    };
   },
 };
 </script>
@@ -11,16 +41,8 @@ export default {
     <div class="container">
       <nav>
         <ul>
-          <li>
-            <a href="#">Donna</a>
-          </li>
-
-          <li>
-            <a href="#">Uomo</a>
-          </li>
-
-          <li>
-            <a href="#">Bambino</a>
+          <li v-for="gender in genders">
+            <a :href="gender.href">{{ gender.sex }}</a>
           </li>
         </ul>
       </nav>
@@ -33,16 +55,8 @@ export default {
       </div>
       <nav class="link">
         <ul>
-          <li>
-            <a href="#"><i class="fa-regular fa-user"></i></a>
-          </li>
-
-          <li>
-            <a href="#"><i class="fa-regular fa-heart"></i></a>
-          </li>
-
-          <li>
-            <a href="#"><i class="fa-solid fa-bag-shopping"></i></a>
+          <li v-for="icon in icons">
+            <a :href="icon.href"><i :class="icon.class"></i></a>
           </li>
         </ul>
       </nav>
@@ -62,6 +76,7 @@ header {
     height: 100%;
 
     ul {
+      display: flex;
       li {
         margin: 0 10px;
       }

@@ -93,7 +93,7 @@ export default {
 
   .card {
     width: calc((100% / 3) - 20px);
-    height: 550px;
+    height: 560px;
     margin: 10px;
     position: relative;
 
@@ -109,7 +109,7 @@ export default {
 
     .info {
       position: absolute;
-      bottom: 160px;
+      bottom: 80px;
       color: white;
       font-size: 0.8rem;
       font-weight: bold;
@@ -128,6 +128,7 @@ export default {
 
     p {
       margin: 0;
+      padding-top: 5px;
 
       .price-red {
         color: red;
