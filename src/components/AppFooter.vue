@@ -1,30 +1,8 @@
 <script>
 export default {
-  data() {
-    return {
-      links: [
-        {
-          title: "Informazioni legali",
-          href: "#",
-        },
-        {
-          title: "Informativa sulla privacy",
-          href: "#",
-        },
-        {
-          title: "Diritto di recesso",
-          href: "#",
-        },
-      ],
-
-      icons: [
-        "icon fa-brands fa-square-twitter",
-        "icon fa-brands fa-square-facebook",
-        "icon fa-brands fa-square-instagram",
-        "icon fa-brands fa-square-pinterest",
-        "icon fa-brands fa-square-youtube",
-      ],
-    };
+  props: {
+    links: Array,
+    icons: Array,
   },
 };
 </script>

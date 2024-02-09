@@ -1,37 +1,8 @@
 <script>
 export default {
-  data() {
-    return {
-      genders: [
-        {
-          sex: "Donna",
-          href: "#",
-        },
-        {
-          sex: "Uomo",
-          href: "#",
-        },
-        {
-          sex: "Bambino",
-          href: "#",
-        },
-      ],
-
-      icons: [
-        {
-          class: "fa-regular fa-user",
-          href: "#",
-        },
-        {
-          class: "fa-regular fa-heart",
-          href: "#",
-        },
-        {
-          class: "fa-regular fa-bag-shopping",
-          href: "#",
-        },
-      ],
-    };
+  props: {
+    genders: Array,
+    icons: Array,
   },
 };
 </script>

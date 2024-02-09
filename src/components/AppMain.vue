@@ -2,6 +2,10 @@
 import AppCard from "./AppCard.vue";
 
 export default {
+  props: {
+    articles: Array,
+  },
+
   components: {
     AppCard,
   },
@@ -10,7 +14,7 @@ export default {
 
 <template>
   <div class="container">
-    <app-card />
+    <app-card :articles="articles" />
   </div>
 </template>
 
