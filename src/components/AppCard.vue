@@ -1,7 +1,22 @@
 <script>
 export default {
+  data() {
+    return {
+      display: true,
+    };
+  },
+
   props: {
-    articles: Array,
+    brand: String,
+    model: String,
+    price: String,
+    priceDashed: String,
+    image: String,
+    imageHover: String,
+    discount: String,
+    isSostenibility: String,
+    isInFavorite: Boolean,
+    displayImage: Boolean,
   },
 
   methods: {
@@ -9,12 +24,12 @@ export default {
       return new URL(`../assets/images/img/${img}`, import.meta.url).href;
     },
 
-    reverseDisplayImage(i) {
-      this.articles[i].displayImage = false;
+    reverseDisplayImage() {
+      this.display = false;
     },
 
-    resetStartDisplay(i) {
-      this.articles[i].displayImage = !this.articles[i].displayImage;
+    resetStartDisplay() {
+      this.display = !this.display;
     },
   },
 };
@@ -22,31 +37,29 @@ export default {
 
 <template>
   <div
-    v-for="(article, index) in articles"
-    @mouseenter="reverseDisplayImage(index)"
-    @mouseleave="resetStartDisplay(index)"
+    @mouseenter="reverseDisplayImage()"
+    @mouseleave="resetStartDisplay()"
     class="card"
   >
-    <img
-      v-if="article.displayImage"
-      :src="getImagePath(article.image)"
-      :alt="model"
-    />
-    <img v-else :src="getImagePath(article.imageHover)" alt="" />
-    <p>{{ article.brand }}</p>
-    <h3>{{ article.model }}</h3>
-    <span class="heart"><i class="fa-solid fa-heart"></i></span>
+    <img v-if="this.display" :src="getImagePath(image)" :alt="model" />
+    <img v-else :src="getImagePath(imageHover)" :alt="model" />
+    <p>{{ brand }}</p>
+    <h3>{{ model }}</h3>
+    <span class="heart"
+      ><i
+        :class="isInFavorite == true ? 'heart-red' : 'heart-void'"
+        class="fa-solid fa-heart"
+      ></i
+    ></span>
     <div class="info">
-      <span v-if="article.discount" class="price">{{ article.discount }}</span>
-      <span v-if="article.isSostenibility" class="sostenibilità">{{
-        article.isSostenibility
+      <span v-if="discount" class="price">{{ discount }}</span>
+      <span v-if="isSostenibility" class="sostenibilità">{{
+        isSostenibility
       }}</span>
     </div>
     <p>
-      <span class="price-red"> {{ article.price }} € </span>
-      <span v-if="article.priceDashed" class="price-dashed">
-        {{ article.priceDashed }} €</span
-      >
+      <span class="price-red"> {{ price }} € </span>
+      <span v-if="priceDashed" class="price-dashed"> {{ priceDashed }} €</span>
     </p>
   </div>
 </template>
@@ -66,6 +79,14 @@ export default {
     position: absolute;
     left: 88%;
     top: 10px;
+
+    .heart-red {
+      color: red;
+    }
+
+    .heart-void {
+      color: lightgray;
+    }
   }
 
   .info {

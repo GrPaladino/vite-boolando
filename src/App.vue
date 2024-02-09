@@ -47,6 +47,7 @@ export default {
           discount: "-50%",
           isSostenibility: "Sostenibilità",
           displayImage: true,
+          isInFavorites: true,
         },
 
         {
@@ -58,6 +59,7 @@ export default {
           imageHover: "2b.webp",
           discount: "30%",
           displayImage: true,
+          isInFavorites: true,
         },
 
         {
@@ -70,6 +72,7 @@ export default {
           discount: "-30%",
           isSostenibility: "Sostenibilità",
           displayImage: true,
+          isInFavorites: false,
         },
 
         {
@@ -81,6 +84,7 @@ export default {
           imageHover: "4b.webp",
           discount: "-50%",
           displayImage: true,
+          isInFavorites: false,
         },
 
         {
@@ -90,6 +94,7 @@ export default {
           image: "5.webp",
           imageHover: "5b.webp",
           displayImage: true,
+          isInFavorites: true,
         },
 
         {
@@ -100,6 +105,7 @@ export default {
           imageHover: "6b.webp",
           isSostenibility: "Sostenibilità",
           displayImage: true,
+          isInFavorites: true,
         },
       ],
 
