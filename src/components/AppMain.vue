@@ -10,6 +10,9 @@ export default {
           priceDashed: "29,99",
           image: "1.webp",
           imageHover: "1b.webp",
+          discount: "-50%",
+          isSostenibility: "Sostenibilità",
+          displayImage: true,
         },
 
         {
@@ -19,6 +22,8 @@ export default {
           priceDashed: "29,99",
           image: "2.webp",
           imageHover: "2b.webp",
+          discount: "30%",
+          displayImage: true,
         },
 
         {
@@ -28,6 +33,9 @@ export default {
           priceDashed: "184,99",
           image: "3.webp",
           imageHover: "3b.webp",
+          discount: "-30%",
+          isSostenibility: "Sostenibilità",
+          displayImage: true,
         },
 
         {
@@ -37,6 +45,8 @@ export default {
           priceDashed: "29,99",
           image: "4.webp",
           imageHover: "4b.webp",
+          discount: "-50%",
+          displayImage: true,
         },
 
         {
@@ -45,6 +55,7 @@ export default {
           price: "99,99",
           image: "5.webp",
           imageHover: "5b.webp",
+          displayImage: true,
         },
 
         {
@@ -53,6 +64,8 @@ export default {
           price: "29,99",
           image: "6.webp",
           imageHover: "6b.webp",
+          isSostenibility: "Sostenibilità",
+          displayImage: true,
         },
       ],
     };
@@ -62,24 +75,48 @@ export default {
     getImagePath(img) {
       return new URL(`../assets/images/img/${img}`, import.meta.url).href;
     },
+
+    reverseDisplayImage(i) {
+      this.articles[i].displayImage = false;
+    },
+
+    resetStartDisplay(i) {
+      this.articles[i].displayImage = !this.articles[i].displayImage;
+    },
   },
 };
 </script>
 
 <template>
   <div class="container">
-    <div v-for="article in articles" class="card">
-      <img :src="getImagePath(article.image)" alt="" />
+    <div
+      v-for="(article, index) in articles"
+      @mouseenter="reverseDisplayImage(index)"
+      @mouseleave="resetStartDisplay(index)"
+      class="card"
+    >
+      <img
+        v-if="article.displayImage"
+        :src="getImagePath(article.image)"
+        alt=""
+      />
+      <img v-else :src="getImagePath(article.imageHover)" alt="" />
       <p>{{ article.brand }}</p>
       <h3>{{ article.model }}</h3>
       <span class="heart"><i class="fa-solid fa-heart"></i></span>
       <div class="info">
-        <span class="price">-50%</span>
-        <span class="sostenibilità">Sostenibilità</span>
+        <span v-if="article.discount" class="price">{{
+          article.discount
+        }}</span>
+        <span v-if="article.isSostenibility" class="sostenibilità">{{
+          article.isSostenibility
+        }}</span>
       </div>
       <p>
         <span class="price-red"> {{ article.price }} € </span>
-        <span class="price-dashed"> {{ article.priceDashed }} </span>
+        <span v-if="article.priceDashed" class="price-dashed">
+          {{ article.priceDashed }} €</span
+        >
       </p>
     </div>
   </div>
