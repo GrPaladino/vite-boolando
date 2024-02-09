@@ -16,7 +16,6 @@ export default {
     discount: String,
     isSostenibility: String,
     isInFavorite: Boolean,
-    displayImage: Boolean,
   },
 
   methods: {

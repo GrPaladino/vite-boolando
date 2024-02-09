@@ -25,7 +25,6 @@ export default {
       :discount="article.discount"
       :isSostenibility="article.isSostenibility"
       :isInFavorite="article.isInFavorites"
-      :displayImage="article.displayImage"
     />
   </div>
 </template>
