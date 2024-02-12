@@ -8,6 +8,8 @@ import { store } from "./store";
 export default {
   data() {
     return {
+      store,
+
       headerGenders: [
         {
           sex: "Donna",
@@ -67,7 +69,7 @@ export default {
 
   methods: {
     fetchArticles() {
-      axios.get(`${store.apiUri}articles`).then((response) => {
+      axios.get(`${store.apiUri}/articles`).then((response) => {
         this.articles = response.data;
       });
     },
