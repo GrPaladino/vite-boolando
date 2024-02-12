@@ -2,6 +2,7 @@
 import AppMain from "./components/AppMain.vue";
 import AppHeader from "./components/AppHeader.vue";
 import AppFooter from "./components/AppFooter.vue";
+import axios from "axios";
 
 export default {
   data() {
@@ -36,78 +37,7 @@ export default {
         },
       ],
 
-      mainArticles: [
-        {
-          brand: "Levi's",
-          model: "RELAXED FIT TEE UNISEX",
-          price: "14,99",
-          priceDashed: "29,99",
-          image: "1.webp",
-          imageHover: "1b.webp",
-          discount: "-50%",
-          isSostenibility: "Sostenibilità",
-          displayImage: true,
-          isInFavorites: true,
-        },
-
-        {
-          brand: "Guess",
-          model: "ROSES TEE",
-          price: "20,99",
-          priceDashed: "29,99",
-          image: "2.webp",
-          imageHover: "2b.webp",
-          discount: "30%",
-          displayImage: true,
-          isInFavorites: true,
-        },
-
-        {
-          brand: "Come Zucchero Filato",
-          model: "VOGLIA DI COLORI PASTELLO",
-          price: "129,99",
-          priceDashed: "184,99",
-          image: "3.webp",
-          imageHover: "3b.webp",
-          discount: "-30%",
-          isSostenibility: "Sostenibilità",
-          displayImage: true,
-          isInFavorites: false,
-        },
-
-        {
-          brand: "Levi's",
-          model: "TEE UNISEX",
-          price: "14,99",
-          priceDashed: "29,99",
-          image: "4.webp",
-          imageHover: "4b.webp",
-          discount: "-50%",
-          displayImage: true,
-          isInFavorites: false,
-        },
-
-        {
-          brand: "Maya Deluxe",
-          model: "STRIPE BODICE",
-          price: "99,99",
-          image: "5.webp",
-          imageHover: "5b.webp",
-          displayImage: true,
-          isInFavorites: true,
-        },
-
-        {
-          brand: "Espirit",
-          model: "MAGLIONE - BLACK",
-          price: "29,99",
-          image: "6.webp",
-          imageHover: "6b.webp",
-          isSostenibility: "Sostenibilità",
-          displayImage: true,
-          isInFavorites: true,
-        },
-      ],
+      articles: [],
 
       footerLinks: [
         {
@@ -134,6 +64,18 @@ export default {
     };
   },
 
+  methods: {
+    fetchArticles() {
+      axios.get("http://localhost:3000/articles").then((response) => {
+        this.articles = response.data;
+      });
+    },
+  },
+
+  created() {
+    this.fetchArticles();
+  },
+
   components: {
     AppHeader,
     AppMain,
@@ -144,7 +86,7 @@ export default {
 
 <template>
   <app-header :genders="headerGenders" :icons="headerIcons"></app-header>
-  <app-main :articles="mainArticles"></app-main>
+  <app-main :articles="articles"></app-main>
   <app-footer :links="footerLinks" :icons="footerIcons"></app-footer>
 </template>
 

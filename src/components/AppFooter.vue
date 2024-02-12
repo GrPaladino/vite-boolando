@@ -68,6 +68,7 @@ footer {
 
         .icon {
           margin-left: 3px;
+          cursor: pointer;
         }
       }
     }
