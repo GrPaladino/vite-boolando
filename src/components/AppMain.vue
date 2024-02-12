@@ -14,18 +14,7 @@ export default {
 
 <template>
   <div class="container">
-    <app-card
-      v-for="article in articles"
-      :brand="article.brand"
-      :model="article.model"
-      :price="article.price"
-      :priceDashed="article.priceDashed"
-      :image="article.image"
-      :imageHover="article.imageHover"
-      :discount="article.discount"
-      :isSostenibility="article.isSostenibility"
-      :isInFavorite="article.isInFavorites"
-    />
+    <app-card v-for="article in articles" :article="article" />
   </div>
 </template>
 

@@ -7,15 +7,7 @@ export default {
   },
 
   props: {
-    brand: String,
-    model: String,
-    price: String,
-    priceDashed: String,
-    image: String,
-    imageHover: String,
-    discount: String,
-    isSostenibility: String,
-    isInFavorite: Boolean,
+    article: Object,
   },
 
   methods: {
@@ -40,25 +32,31 @@ export default {
     @mouseleave="resetStartDisplay()"
     class="card"
   >
-    <img v-if="this.display" :src="getImagePath(image)" :alt="model" />
-    <img v-else :src="getImagePath(imageHover)" :alt="model" />
-    <p>{{ brand }}</p>
-    <h3>{{ model }}</h3>
+    <img
+      v-if="this.display"
+      :src="getImagePath(article.image)"
+      :alt="article.model"
+    />
+    <img v-else :src="getImagePath(article.imageHover)" :alt="article.model" />
+    <p>{{ article.brand }}</p>
+    <h3>{{ article.model }}</h3>
     <span class="heart"
       ><i
-        :class="isInFavorite == true ? 'heart-red' : 'heart-void'"
+        :class="article.isInFavorites == true ? 'heart-red' : 'heart-void'"
         class="fa-solid fa-heart"
       ></i
     ></span>
     <div class="info">
-      <span v-if="discount" class="price">{{ discount }}</span>
-      <span v-if="isSostenibility" class="sostenibilità">{{
-        isSostenibility
+      <span v-if="article.discount" class="price">{{ article.discount }}</span>
+      <span v-if="article.isSostenibility" class="sostenibilità">{{
+        article.isSostenibility
       }}</span>
     </div>
     <p>
-      <span class="price-red"> {{ price }} € </span>
-      <span v-if="priceDashed" class="price-dashed"> {{ priceDashed }} €</span>
+      <span class="price-red"> {{ article.price }} € </span>
+      <span v-if="article.priceDashed" class="price-dashed">
+        {{ article.priceDashed }} €</span
+      >
     </p>
   </div>
 </template>
