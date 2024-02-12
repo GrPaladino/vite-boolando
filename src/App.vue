@@ -3,6 +3,7 @@ import AppMain from "./components/AppMain.vue";
 import AppHeader from "./components/AppHeader.vue";
 import AppFooter from "./components/AppFooter.vue";
 import axios from "axios";
+import { store } from "./store";
 
 export default {
   data() {
@@ -66,7 +67,7 @@ export default {
 
   methods: {
     fetchArticles() {
-      axios.get("http://localhost:3000/articles").then((response) => {
+      axios.get(`${store.apiUri}articles`).then((response) => {
         this.articles = response.data;
       });
     },
