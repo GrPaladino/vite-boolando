@@ -18,8 +18,15 @@ export default {
       if (selectedArticle) {
         store.modal.brand = selectedArticle.brand;
         store.modal.model = selectedArticle.model;
-        store.modal.fullPrice = selectedArticle.priceDashed;
-        store.modal.finalPrice = selectedArticle.price;
+
+        if (!selectedArticle.priceDashed) {
+          store.modal.finalPrice = selectedArticle.price;
+          store.modal.fullPrice = "";
+        } else {
+          store.modal.fullPrice = selectedArticle.priceDashed;
+          store.modal.finalPrice = selectedArticle.price;
+        }
+
         store.modal.discount = selectedArticle.discount;
         store.modal.isSostenibility = selectedArticle.isSostenibility;
         store.modal.image = selectedArticle.image;

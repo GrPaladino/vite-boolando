@@ -37,9 +37,9 @@ export default {
           <h4>{{ store.modal.model }}</h4>
         </div>
         <div class="price">
-          <p class="price-red">{{ store.modal.fullPrice }}</p>
-          <p v-if="store.modal.finalPrice" class="price-dashed">
-            {{ store.modal.finalPrice }}
+          <p class="price-red">{{ store.modal.finalPrice }} €</p>
+          <p v-if="store.modal.fullPrice" class="price-dashed">
+            {{ store.modal.fullPrice }} €
           </p>
         </div>
       </div>
