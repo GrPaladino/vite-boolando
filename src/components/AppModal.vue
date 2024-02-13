@@ -22,9 +22,9 @@ export default {
       <div class="img-container">
         <img :src="store.getImagePath(store.modal.image)" alt="" />
         <div class="info">
-          <span v-if="store.modal.discount" class="price"
-            >{{ store.modal.discount }}%</span
-          >
+          <span v-if="store.modal.discount" class="price">{{
+            store.modal.discount
+          }}</span>
           <span v-if="store.modal.isSostenibility" class="sostenibilità">{{
             store.modal.isSostenibility
           }}</span>
