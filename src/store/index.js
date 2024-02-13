@@ -8,6 +8,12 @@ export const store = reactive({
   },
 
   modal: {
-    show: true,
+    show: false,
+    brand: "",
+    model: "",
+    fullPrice: "",
+    finalPrice: "",
+    discount: "",
+    isSostenibility: "",
   },
 });

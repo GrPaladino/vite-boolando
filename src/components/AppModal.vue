@@ -20,21 +20,27 @@ export default {
     <div class="modal">
       <i @click="closeModal()" class="fa-solid fa-xmark icon"></i>
       <div class="img-container">
-        <img :src="store.getImagePath('1.webp')" alt="" />
+        <img :src="store.getImagePath(store.modal.image)" alt="" />
         <div class="info">
-          <span class="price">50%</span>
-          <span class="sostenibilità">sostenibility</span>
+          <span v-if="store.modal.discount" class="price"
+            >{{ store.modal.discount }}%</span
+          >
+          <span v-if="store.modal.isSostenibility" class="sostenibilità">{{
+            store.modal.isSostenibility
+          }}</span>
         </div>
       </div>
 
       <div class="modal-info">
         <div>
-          <h3>brand</h3>
-          <h4>modello</h4>
+          <h3>{{ store.modal.brand }}</h3>
+          <h4>{{ store.modal.model }}</h4>
         </div>
         <div class="price">
-          <p>prezzo pieno</p>
-          <p>prezzo scontato</p>
+          <p class="price-red">{{ store.modal.fullPrice }}</p>
+          <p v-if="store.modal.finalPrice" class="price-dashed">
+            {{ store.modal.finalPrice }}
+          </p>
         </div>
       </div>
     </div>
@@ -106,6 +112,18 @@ export default {
 
       .price {
         margin-top: 2rem;
+
+        .price-red {
+          color: red;
+          font-size: 0.9rem;
+          font-weight: 600;
+        }
+
+        .price-dashed {
+          font-size: 0.9rem;
+          font-weight: 600;
+          text-decoration-line: line-through;
+        }
       }
     }
   }

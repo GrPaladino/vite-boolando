@@ -12,6 +12,7 @@ export default {
 
   props: {
     article: Object,
+    index: Number,
   },
 
   methods: {
@@ -23,11 +24,14 @@ export default {
       this.display = !this.display;
     },
   },
+
+  emits: ["modal-open"],
 };
 </script>
 
 <template>
   <div
+    @click="$emit('modal-open', index)"
     @mouseenter="reverseDisplayImage()"
     @mouseleave="resetStartDisplay()"
     class="card"
