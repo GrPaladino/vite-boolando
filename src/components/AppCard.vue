@@ -1,7 +1,11 @@
 <script>
+import { store } from "../store";
+
 export default {
   data() {
     return {
+      store,
+
       display: true,
     };
   },
@@ -11,10 +15,6 @@ export default {
   },
 
   methods: {
-    getImagePath(img) {
-      return new URL(`../assets/images/img/${img}`, import.meta.url).href;
-    },
-
     reverseDisplayImage() {
       this.display = false;
     },
@@ -34,10 +34,14 @@ export default {
   >
     <img
       v-if="this.display"
-      :src="getImagePath(article.image)"
+      :src="store.getImagePath(article.image)"
       :alt="article.model"
     />
-    <img v-else :src="getImagePath(article.imageHover)" :alt="article.model" />
+    <img
+      v-else
+      :src="store.getImagePath(article.imageHover)"
+      :alt="article.model"
+    />
     <p>{{ article.brand }}</p>
     <h3>{{ article.model }}</h3>
     <span class="heart"

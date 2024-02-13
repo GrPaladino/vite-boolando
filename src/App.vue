@@ -2,6 +2,8 @@
 import AppMain from "./components/AppMain.vue";
 import AppHeader from "./components/AppHeader.vue";
 import AppFooter from "./components/AppFooter.vue";
+import AppModal from "./components/AppModal.vue";
+
 import axios from "axios";
 import { store } from "./store";
 
@@ -83,13 +85,15 @@ export default {
     AppHeader,
     AppMain,
     AppFooter,
+    AppModal,
   },
 };
 </script>
 
 <template>
   <app-header :genders="headerGenders" :icons="headerIcons"></app-header>
-  <app-main :articles="articles"></app-main>
+  <app-modal v-if="store.modal.show" />
+  <app-main :articles="articles" />
   <app-footer :links="footerLinks" :icons="footerIcons"></app-footer>
 </template>
 
